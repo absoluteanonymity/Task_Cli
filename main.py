@@ -4,28 +4,6 @@ import os
 import re
 
 
-
-
-
-# Json Format for tasks:
-
-# task = {
-#     "id": 1,
-#     "description": "Task description",
-#     "status": "pending",  # pending, in_progress, completed
-#     "created_at": "2024-06-01T12:00:00Z",
-#     "updated_at": "2024-06-01T12:00:00Z"
-# }
-
-#json.dump(data, f, indent=4) Format to write json data to file with indentation for readability
-
-# import json       Loading JSON data from a file
-
-# with open("data.json", "r") as f:
-#     data = json.load(f)
-
-# print(data["name"])
-
 def add_task():
 
     FILE_NAME = "tasks.json"
