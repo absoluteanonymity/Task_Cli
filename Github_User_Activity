@@ -1,0 +1,22 @@
+import requests
+
+
+mode = True
+while mode == True:
+    username = input("Enter a Github username (or 'exit' to quit): ")
+    if username.lower() == 'exit':
+        mode = False
+        print("Exiting program...")
+        break
+    url = (f"https://api.github.com/users/{username}/events")
+    response = requests.get(url)
+    if response.status_code == 200:
+        events = response.json()
+
+        for event in events[:10]:
+            print(f"Event Type: {event['type']}")
+            print(f"Repository: {event['repo']['name']}")
+            print(f"Created At: {event['created_at']}")
+            print("-" * 40)
+    else:
+        print(f"Failed to fetch data for user {username}. Status code: {response.status_code}")
